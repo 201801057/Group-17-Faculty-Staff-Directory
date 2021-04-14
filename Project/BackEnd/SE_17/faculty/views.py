@@ -11,7 +11,7 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 def home(request):
     return render(request,'faculty/home.html')
 
-#login
+#LogIn page
 def user_login(request):
     if not request.user.is_authenticated:
         if request.method == "POST":
