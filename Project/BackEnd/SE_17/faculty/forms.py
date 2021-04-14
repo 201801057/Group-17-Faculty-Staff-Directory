@@ -8,3 +8,9 @@ class Login(AuthenticationForm):
    {'autofocus':True,'class':'form-control'}))
    password = forms.CharField(label=("Password"),strip=False,
    widget=forms.PasswordInput(attrs={'autocomplete':'current-password','class':'form-control'})) 
+
+#sing up request form
+class SingUpRequestform(forms.Form):
+   name = forms.CharField(max_length=30)
+   email = forms.EmailField(max_length=40)
+   description = forms.CharField(max_length=200)

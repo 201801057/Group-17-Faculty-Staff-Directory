@@ -23,5 +23,6 @@ urlpatterns = [
     path('',views.home,name='home'), 
     #Login...
     path('login/',views.user_login,name='login'), 
+    path('req/',views.SingupRequest,name="request"),
 ]
 
