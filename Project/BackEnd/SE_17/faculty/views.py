@@ -6,10 +6,10 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm,PasswordChangeForm
 from .forms import SingUpRequestform
 from django.core.mail import send_mail, BadHeaderError
-from django.contrib.auth.models import Group, User
+from django.http.response import HttpResponse, HttpResponseRedirect
 from .forms import ProfileAdd,UserRegister
 from .models import Profile
-from django.http.response import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.models import Group, User
 # Create your views here.
 
 #Home Page
@@ -51,13 +51,6 @@ def profileDataAddForm(request):
         return render(request, 'faculty/profileForm.html',{'form':form})
     else:
         return redirect('login')
-#Admin
-def Admin(request):
-    usersList= User.objects.filter(is_superuser=False)
-    profile = Profile.objects.all()
-    if request.user.is_superuser:
-        return render(request,'faculty/admin.html',{'users':usersList,'profile':profile})
-
 
 def profileData(request):
     if request.user.is_authenticated:
@@ -68,7 +61,28 @@ def profileData(request):
         return render(request,'faculty/profile.html',{'data':data})
     else:
         return redirect('login')
-        
+
+def SingupRequest(request):
+   if request.method == "POST":
+      RequestForm = SingUpRequestform(request.POST)
+      if RequestForm.is_valid():
+         name = RequestForm.cleaned_data['name']
+         description = RequestForm.cleaned_data['description']
+         email = RequestForm.cleaned_data['email']
+         
+         subject = "Sing Up Request From " + name
+         msg = "Name: " + name + "\n" + description
+
+         try:
+            send_mail(subject,msg,None,['DjangoAdmin@gmail.com'],fail_silently='False')
+            send_mail("Sing up request sent","test1",None,[email],fail_silently='False')
+            messages.success(request,'Mail sent !!')
+         except BadHeaderError:
+            messages.error(request,"Somthing went wrong\n")
+         
+   RequestForm = SingUpRequestform()
+   return render(request,'faculty/singuprequest.html',{'form':RequestForm})
+
 # create user by admin
 def adduser(request):
    if request.method =='POST' :
@@ -83,6 +97,12 @@ def adduser(request):
    return render(request,'faculty/adduser.html',{'form':form})
 
 
+#Admin
+def Admin(request):
+    usersList= User.objects.filter(is_superuser=False)
+    profile = Profile.objects.all()
+    if request.user.is_superuser:
+        return render(request,'faculty/admin.html',{'users':usersList,'profile':profile})
 #delete confirmation
 def confirmDelete(request,k):
     UserData= User.objects.get(id=k)
@@ -111,29 +131,3 @@ def Deletepost(request,k):
         u.delete()
     messages.success(request,'Delete successfully !!')
     return redirect('Admin')
-
-
-
-
-#Signup request
-
-def SingupRequest(request):
-   if request.method == "POST":
-      RequestForm = SingUpRequestform(request.POST)
-      if RequestForm.is_valid():
-         name = RequestForm.cleaned_data['name']
-         description = RequestForm.cleaned_data['description']
-         email = RequestForm.cleaned_data['email']
-         
-         subject = "Sing Up Request From " + name
-         msg = "Name: " + name + "\n" + description
-
-         try:
-            send_mail(subject,msg,None,['DjangoAdmin@gmail.com'],fail_silently='False')
-            send_mail("Sing up request sent","test1",None,[email],fail_silently='False')
-            messages.success(request,'Mail sent !!')
-         except BadHeaderError:
-            messages.error(request,"Somthing went wrong\n")
-         
-   RequestForm = SingUpRequestform()
-   return render(request,'faculty/singuprequest.html',{'form':RequestForm})
