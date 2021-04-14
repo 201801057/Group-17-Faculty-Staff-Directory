@@ -7,6 +7,10 @@ from django.contrib.auth.forms import AuthenticationForm,PasswordChangeForm
 from .forms import SingUpRequestform
 from django.core.mail import send_mail, BadHeaderError
 from django.http.response import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.models import Group, User
+from .forms import ProfileAdd,UserRegister
+from .models import Profile
+
 # Create your views here.
 
 #Home Page
@@ -79,3 +83,54 @@ def SingupRequest(request):
          
    RequestForm = SingUpRequestform()
    return render(request,'faculty/singuprequest.html',{'form':RequestForm})
+
+# create user by admin
+def adduser(request):
+   if request.method =='POST' :
+      form = UserRegister(request.POST)
+      if form.is_valid():
+         user= form.save()
+         Uname=user.username
+         print(Uname)
+         return HttpResponseRedirect('/Admin/')
+   else :
+      form = UserRegister()
+   return render(request,'faculty/adduser.html',{'form':form})
+
+#delete confirmation
+def confirmDelete(request,k):
+    UserData= User.objects.get(id=k)
+    Pro=Profile.objects.all()
+    for p in Pro:
+        if str(p.user) == UserData.username :
+            return render(request,'faculty/confirmdelete.html',{'d':p})
+    
+    return render(request,'faculty/confirmdelete.html',{'u':UserData})
+
+#Delete
+def Deletepost(request,k):
+ # if request.user.is_superuser:
+    pi= Profile.objects.all()
+    j=0
+    for p in pi:
+        if str(p.id) == k:
+            kk=p.user
+            p.delete()
+            kkk=User.objects.get(username=kk)
+            kkk.delete()
+            j=1
+            break
+    if j==0:
+        u=User.objects.get(pk=k)
+        u.delete()
+    messages.success(request,'Delete successfully !!')
+    return redirect('Admin')
+  
+#Admin
+def Admin(request):
+    usersList= User.objects.filter(is_superuser=False)
+    profile = Profile.objects.all()
+    if request.user.is_superuser:
+        return render(request,'faculty/admin.html',{'users':usersList,'profile':profile})
+   
+
