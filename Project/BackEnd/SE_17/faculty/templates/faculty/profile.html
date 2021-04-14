@@ -1,0 +1,22 @@
+{% extends 'faculty/base.html' %}
+{% load static %}
+{% block content %}
+<form action="{% url 'profileUpdate' data.id %}" method="POST">
+    {% csrf_token %}
+    <h3>User :{{data.user}}</h3>
+    <h3>Name :{{data.name}}</h3>
+    <h3>Email ID :{{data.email}}</h3>
+    <h3>Institute :{{data.inst_name}}</h3>
+    <h3>Department :{{data.department}}</h3>
+    <h3>Education :{{data.education}}</h3>
+    <h3>Interest :{{data.pro_int}}</h3>
+    <img id="setimage" alt="" width="250" height="250">
+    <script>
+        var str = "{{data.image.name}}";
+        var filename = str.split("/");
+        document.getElementById("setimage").src = "{% static 'faculty/images/'  %}" + filename[filename.length - 1];
+    </script>
+    <br />
+    <a href="{% url 'profileUpdate' data.id %}">UPDATE</a>
+</form>
+{% endblock content %}

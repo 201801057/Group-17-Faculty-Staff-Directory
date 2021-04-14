@@ -23,5 +23,22 @@ urlpatterns = [
     path('',views.home,name='home'), 
     #Login...
     path('login/',views.user_login,name='login'), 
+    path('req/',views.SingupRequest,name="request"),
+
+    #Profile...
+    path('profile/',views.profileData,name='profile'),
+    path('profileForm/',views.profileDataAddForm,name='profileForm'),
+
+     #delete... 
+    path('Delete/<str:k>',views.Deletepost,name='Delete'),
+    path('confirmDelete/<str:k>',views.confirmDelete,name='confirmDelete'), 
+
+    #Admin
+    path('Admin/',views.Admin,name='Admin'),
+
+    #adduser
+    path('adduser/',views.adduser,name='adduser'),   
+
+
 ]
 
