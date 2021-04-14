@@ -24,5 +24,9 @@ urlpatterns = [
     #Login...
     path('login/',views.user_login,name='login'), 
     path('req/',views.SingupRequest,name="request"),
+
+    #Profile...
+    path('profile/',views.profileData,name='profile'),
+    path('profileForm/',views.profileDataAddForm,name='profileForm'),
 ]
 
