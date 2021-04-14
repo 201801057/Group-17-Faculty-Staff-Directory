@@ -125,9 +125,12 @@ def Deletepost(request,k):
         u.delete()
     messages.success(request,'Delete successfully !!')
     return redirect('Admin')
+  
 #Admin
 def Admin(request):
     usersList= User.objects.filter(is_superuser=False)
     profile = Profile.objects.all()
     if request.user.is_superuser:
         return render(request,'faculty/admin.html',{'users':usersList,'profile':profile})
+   
+
