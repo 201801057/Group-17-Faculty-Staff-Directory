@@ -12,6 +12,7 @@ class Login(AuthenticationForm):
    password = forms.CharField(label=("Password"),strip=False,
    widget=forms.PasswordInput(attrs={'autocomplete':'current-password','class':'form-control'})) 
 
+
 #sign up request form
 class SingUpRequestform(forms.Form):
    name = forms.CharField(max_length=30)
@@ -24,3 +25,4 @@ class ProfileAdd(ModelForm):
         model=Profile
         fields=['name','email','department','inst_name','courses','education','pro_int','area_exp','image']
         labels={'name':'Name','email':'Email ID','department': 'Department','inst_name':'Institute','courses':'Courses','education':'Education','pro_int':'Interest','area_exp':'Expertise','image':'Image'}
+

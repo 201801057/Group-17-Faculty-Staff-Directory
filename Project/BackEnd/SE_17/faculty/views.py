@@ -31,6 +31,7 @@ def user_login(request):
     else :
       return render(request,'faculty/home.html')
 
+
 #User profile
 def profileDataAddForm(request):
     if request.user.is_authenticated:
@@ -57,7 +58,6 @@ def profileData(request):
         return render(request,'faculty/profile.html',{'data':data})
     else:
         return redirect('login')
-
 
 def SingupRequest(request):
    if request.method == "POST":
