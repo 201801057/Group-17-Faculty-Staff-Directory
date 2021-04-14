@@ -1,17 +1,15 @@
+from django.shortcuts import render
 from django.contrib import messages 
 from django.contrib.auth import authenticate,login,logout
 from django.shortcuts import render,redirect
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm,PasswordChangeForm
 from django.http.response import HttpResponse, HttpResponseRedirect
-from django.contrib.auth.models import Group, User
-from .forms import ProfileAdd,UserRegister
-from .models import Profile
-from .forms import SingUpRequestform
-from django.core.mail import send_mail, BadHeaderError
-from django.views.generic import ListView
-import json
+# Create your views here.
 
+#Home Page
+def home(request):
+    return render(request,'faculty/home.html')
 
 #login
 def user_login(request):
