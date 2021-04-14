@@ -7,9 +7,10 @@ from django.contrib.auth.forms import AuthenticationForm,PasswordChangeForm
 from .forms import SingUpRequestform
 from django.core.mail import send_mail, BadHeaderError
 from django.http.response import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.models import Group, User
 from .forms import ProfileAdd,UserRegister
 from .models import Profile
-from django.contrib.auth.models import Group, User
+
 # Create your views here.
 
 #Home Page
@@ -96,13 +97,6 @@ def adduser(request):
       form = UserRegister()
    return render(request,'faculty/adduser.html',{'form':form})
 
-
-#Admin
-def Admin(request):
-    usersList= User.objects.filter(is_superuser=False)
-    profile = Profile.objects.all()
-    if request.user.is_superuser:
-        return render(request,'faculty/admin.html',{'users':usersList,'profile':profile})
 #delete confirmation
 def confirmDelete(request,k):
     UserData= User.objects.get(id=k)
@@ -131,3 +125,9 @@ def Deletepost(request,k):
         u.delete()
     messages.success(request,'Delete successfully !!')
     return redirect('Admin')
+#Admin
+def Admin(request):
+    usersList= User.objects.filter(is_superuser=False)
+    profile = Profile.objects.all()
+    if request.user.is_superuser:
+        return render(request,'faculty/admin.html',{'users':usersList,'profile':profile})
