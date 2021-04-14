@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate,login,logout
 from django.shortcuts import render,redirect
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm,PasswordChangeForm
+from .forms import SingUpRequestform
+from django.core.mail import send_mail, BadHeaderError
 from django.http.response import HttpResponse, HttpResponseRedirect
 # Create your views here.
 
@@ -28,3 +30,24 @@ def user_login(request):
         return render(request,'faculty/login.html',{'form':form})
     else :
       return render(request,'faculty/home.html')
+
+def SingupRequest(request):
+   if request.method == "POST":
+      RequestForm = SingUpRequestform(request.POST)
+      if RequestForm.is_valid():
+         name = RequestForm.cleaned_data['name']
+         description = RequestForm.cleaned_data['description']
+         email = RequestForm.cleaned_data['email']
+         
+         subject = "Sing Up Request From " + name
+         msg = "Name: " + name + "\n" + description
+
+         try:
+            send_mail(subject,msg,None,['DjangoAdmin@gmail.com'],fail_silently='False')
+            send_mail("Sing up request sent","test1",None,[email],fail_silently='False')
+            messages.success(request,'Mail sent !!')
+         except BadHeaderError:
+            messages.error(request,"Somthing went wrong\n")
+         
+   RequestForm = SingUpRequestform()
+   return render(request,'faculty/singuprequest.html',{'form':RequestForm})
