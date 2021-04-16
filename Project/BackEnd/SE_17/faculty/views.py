@@ -91,7 +91,14 @@ def adduser(request):
       if form.is_valid():
          user= form.save()
          Uname=user.username
-         print(Uname)
+         email = form.cleaned_data['email']
+         password = form.cleaned_data['password1']
+         msg = "Please find below user name and password for login in to Staff faculty website. We strongly recommend you to change password.\n\nUser Name: " + Uname +"\nPassword: "+password
+         try:
+            send_mail("Your account has been created",msg,None,[email],fail_silently='False')
+         except BadHeaderError:
+            print("somethings wrong!") 
+         #print(Uname)
          return HttpResponseRedirect('/Admin/')
    else :
       form = UserRegister()
