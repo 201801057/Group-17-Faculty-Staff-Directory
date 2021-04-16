@@ -1,0 +1,29 @@
+{% extends 'faculty\base.html' %}
+{% block content %}
+<form action="" method="POST">
+{% csrf_token %}
+    <input type="text" name="NAME">
+    <label for="CATAGORY" name="CATAGORY">CATAGORY</label>
+        <select name="CATAGORY" id="CATAGORY">
+        <option value="all">All</option>
+        <option value="faculty">Faculty</option>
+        <option value="staff">Staff</option>
+        </select>
+
+    <label for="SORT" name="SORT">SORT</label>
+        <select name="SORT" id="SORT">
+        <option value="">Default</option>
+        <option value="name">Name</option>
+        <option value="inst_name">College</option>
+        <option value="courses">Course</option>
+        </select>
+
+    <label for="ORDER" name="ORDER">ORDER</label>
+        <select name="ORDER" id="ORDER">
+        <option value="A-Z">A-Z</option>
+        <option value="Z-A">Z-A</option>
+        </select>
+
+    <input type="submit" value="SEARCH" onsubmit="{% url "search" %}">
+
+{% endblock content %}

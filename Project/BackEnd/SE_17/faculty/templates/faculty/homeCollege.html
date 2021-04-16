@@ -1,0 +1,13 @@
+{% extends 'faculty/base.html' %}
+{% load static %}
+{% block content %}
+{% for d in data %}
+<a href="{% url 'searchGetData' k=d.id %}"><p>    {{d.user}}
+    {{d.name}}    {{d.email}}
+    {{d.department}}
+    {{d.inst_name}}
+    {{d.courses}}
+    {{d.education}}
+    {{d.photo}}</p><br><br><br></a>
+{% endfor %}
+{% endblock content %}
