@@ -7,6 +7,7 @@ from .models import Profile
 
 
 class UserRegister(UserCreationForm):
+    email = forms.EmailField(max_length=50)
     password1= forms.CharField(label="password",widget=forms.PasswordInput(attrs={'class':'form-control'}),required=False)
     password2= forms.CharField(label="Repeat password",widget=forms.PasswordInput(attrs={'class':'form-control'}),required=False)
     class Meta:
