@@ -13,6 +13,70 @@ from .models import Profile
 
 # Create your views here.
 
+usersList=[]
+searchDataList=[]
+
+#Search Page
+def search_data(request):
+    if request.method=='POST':
+        s_name=request.POST.get("NAME",None)
+        s_catagory=request.POST.get("CATAGORY",None)
+        s_sort=request.POST.get("SORT",None)
+        s_order=request.POST.get("ORDER",None)
+        
+        s_name=s_name.lower()
+        s_name=s_name.split(" ")
+        
+        if s_order=="A-Z":
+            if s_sort!="":
+                data=Profile.objects.order_by(s_sort)
+              
+            else:
+                data=Profile.objects.all()
+             
+        else:
+            if s_sort!="":
+                data=Profile.objects.order_by("-"+s_sort)
+                
+            else:
+                data=Profile.objects.all()
+               
+        l=[]
+        page=[]
+        searchDataList.clear()
+        for d in data:
+            if d.hide == False :
+             for i in s_name:
+                if i in d.name.lower() or i in d.email.lower() or i in d.department.lower() or i in d.inst_name.lower() or i in d.courses.lower() or i in d.education.lower() or i in d.pro_int.lower():
+                    l.append(d)
+                    searchDataList.append(d)
+                    break
+        lq=(int(len(searchDataList))+int(2))//3
+        for i in range(lq):
+            page.append(i)
+    
+        ll=l[0:3]
+        return render(request,'faculty/searchPageData.html',{'data':ll,'page':page})
+    else:
+        return render(request,'faculty/search_form.html')
+
+def searchGetData(request,k):
+    data=Profile.objects.get(pk=k)
+    return render(request,'faculty/searchGetData.html',{'data':data})
+
+def searchPageData(request,k):
+    print(int(k))
+    ll=searchDataList[3*int(k):3*int(k)+3]
+    page=[]
+    lq=(int(len(searchDataList))+int(2))//3
+    for i in range(lq):
+        page.append(i)
+    return render(request,'faculty/searchPageData.html',{'data':ll,'page':page})
+
+def homeSearch(request,k):
+    data=Profile.objects.filter(inst_name=k)
+    return render(request,'faculty/homeCollege.html',{'data':data})
+
 #Home Page
 def home(request):
     return render(request,'faculty/home.html')
