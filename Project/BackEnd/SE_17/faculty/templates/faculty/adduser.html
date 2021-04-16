@@ -1,0 +1,30 @@
+{% extends 'faculty/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="col-sm-20">
+    {% if messages %}
+    {% for message in messages %}
+    <p {% if message.tags %}  class="alert alert-{{message.tags}} mb-5" {% endif %}> {{message}}</p>
+    {% endfor %}
+    {% endif %}
+    <form method="POST" action="" novalidate>
+    {% csrf_token %}
+    {% for fm in form %}
+    <div class="form-group m-5">
+    {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}
+    </div>
+    {% endfor %}
+
+    <input type="submit" value="Submit" class="btn btn-primary my-4">
+
+    {% if  form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+    <p>error</p>
+    {% endfor %}
+    {% endif %}
+</form>
+
+</div>
+{% endblock content %}

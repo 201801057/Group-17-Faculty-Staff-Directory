@@ -5,6 +5,16 @@ from django.contrib.auth.models import User
 from django.forms.models import ModelFormMetaclass
 from .models import Profile
 
+
+class UserRegister(UserCreationForm):
+    password1= forms.CharField(label="password",widget=forms.PasswordInput(attrs={'class':'form-control'}),required=False)
+    password2= forms.CharField(label="Repeat password",widget=forms.PasswordInput(attrs={'class':'form-control'}),required=False)
+    class Meta:
+        model = User
+        fields = ['username']
+        labels = {'username':'Username'}
+        widgets={'username':forms.TextInput(attrs={'class':'form-control'})}
+        
 #Login
 class Login(AuthenticationForm):
    username = UsernameField(widget=forms.TextInput(attrs=

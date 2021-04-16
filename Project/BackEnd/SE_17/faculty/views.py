@@ -7,71 +7,11 @@ from django.contrib.auth.forms import AuthenticationForm,PasswordChangeForm
 from .forms import SingUpRequestform
 from django.core.mail import send_mail, BadHeaderError
 from django.http.response import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.models import Group, User
+from .forms import ProfileAdd,UserRegister
+from .models import Profile
+
 # Create your views here.
-
-usersList=[]
-searchDataList=[]
-
-#Search Page
-def search_data(request):
-    if request.method=='POST':
-        s_name=request.POST.get("NAME",None)
-        s_catagory=request.POST.get("CATAGORY",None)
-        s_sort=request.POST.get("SORT",None)
-        s_order=request.POST.get("ORDER",None)
-        
-        s_name=s_name.lower()
-        s_name=s_name.split(" ")
-        
-        if s_order=="A-Z":
-            if s_sort!="":
-                data=Profile.objects.order_by(s_sort)
-              
-            else:
-                data=Profile.objects.all()
-             
-        else:
-            if s_sort!="":
-                data=Profile.objects.order_by("-"+s_sort)
-                
-            else:
-                data=Profile.objects.all()
-               
-        l=[]
-        page=[]
-        searchDataList.clear()
-        for d in data:
-            if d.hide == False :
-             for i in s_name:
-                if i in d.name.lower() or i in d.email.lower() or i in d.department.lower() or i in d.inst_name.lower() or i in d.courses.lower() or i in d.education.lower() or i in d.pro_int.lower():
-                    l.append(d)
-                    searchDataList.append(d)
-                    break
-        lq=(int(len(searchDataList))+int(2))//3
-        for i in range(lq):
-            page.append(i)
-    
-        ll=l[0:3]
-        return render(request,'faculty/searchPageData.html',{'data':ll,'page':page})
-    else:
-        return render(request,'faculty/search_form.html')
-
-def searchGetData(request,k):
-    data=Profile.objects.get(pk=k)
-    return render(request,'faculty/searchGetData.html',{'data':data})
-
-def searchPageData(request,k):
-    print(int(k))
-    ll=searchDataList[3*int(k):3*int(k)+3]
-    page=[]
-    lq=(int(len(searchDataList))+int(2))//3
-    for i in range(lq):
-        page.append(i)
-    return render(request,'faculty/searchPageData.html',{'data':ll,'page':page})
-
-def homeSearch(request,k):
-    data=Profile.objects.filter(inst_name=k)
-    return render(request,'faculty/homeCollege.html',{'data':data})
 
 #Home Page
 def home(request):
@@ -143,3 +83,54 @@ def SingupRequest(request):
          
    RequestForm = SingUpRequestform()
    return render(request,'faculty/singuprequest.html',{'form':RequestForm})
+
+# create user by admin
+def adduser(request):
+   if request.method =='POST' :
+      form = UserRegister(request.POST)
+      if form.is_valid():
+         user= form.save()
+         Uname=user.username
+         print(Uname)
+         return HttpResponseRedirect('/Admin/')
+   else :
+      form = UserRegister()
+   return render(request,'faculty/adduser.html',{'form':form})
+
+#delete confirmation
+def confirmDelete(request,k):
+    UserData= User.objects.get(id=k)
+    Pro=Profile.objects.all()
+    for p in Pro:
+        if str(p.user) == UserData.username :
+            return render(request,'faculty/confirmdelete.html',{'d':p})
+    
+    return render(request,'faculty/confirmdelete.html',{'u':UserData})
+
+#Delete
+def Deletepost(request,k):
+ # if request.user.is_superuser:
+    pi= Profile.objects.all()
+    j=0
+    for p in pi:
+        if str(p.id) == k:
+            kk=p.user
+            p.delete()
+            kkk=User.objects.get(username=kk)
+            kkk.delete()
+            j=1
+            break
+    if j==0:
+        u=User.objects.get(pk=k)
+        u.delete()
+    messages.success(request,'Delete successfully !!')
+    return redirect('Admin')
+  
+#Admin
+def Admin(request):
+    usersList= User.objects.filter(is_superuser=False)
+    profile = Profile.objects.all()
+    if request.user.is_superuser:
+        return render(request,'faculty/admin.html',{'users':usersList,'profile':profile})
+   
+

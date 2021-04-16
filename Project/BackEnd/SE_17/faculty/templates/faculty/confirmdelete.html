@@ -1,0 +1,24 @@
+{% extends 'faculty/base.html' %}
+{% load static %}
+{% block content %}
+
+
+{% if d is not NULL %}
+
+
+<h1> Are you  sure to delete this profile? </h1>
+{{d.name}}    {{d.email}}
+{{d.department}}
+{{d.inst_name}}
+{{d.courses}}
+{{d.education}}
+{{d.photo}}
+
+<a href="{% url 'Delete' d.id %}">Delete</a>
+{% else %}
+<h1>Profile is Not created Yet !! </h1>
+ <h1>Are you sure to delete this user Account? </h1>
+<a href="{% url 'Delete' u.id %}">Delete</a>
+{% endif %}
+<a href="{% url 'Admin' %}">Back</a>
+{% endblock content %}

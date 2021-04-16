@@ -25,6 +25,13 @@ urlpatterns = [
     path('login/',views.user_login,name='login'), 
     path('req/',views.SingupRequest,name="request"),
 
+    path('Admin/',views.Admin,name='Admin'),  
+    path('adduser/',views.adduser,name='adduser'), 
+
+    #delete... 
+    path('Delete/<str:k>',views.Deletepost,name='Delete'),
+    path('confirmDelete/<str:k>',views.confirmDelete,name='confirmDelete'), 
+
     #Profile...
     path('profile/',views.profileData,name='profile'),
     path('profileForm/',views.profileDataAddForm,name='profileForm'),
