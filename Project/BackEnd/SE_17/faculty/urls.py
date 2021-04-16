@@ -36,5 +36,11 @@ urlpatterns = [
     path('profile/',views.profileData,name='profile'),
     path('profileForm/',views.profileDataAddForm,name='profileForm'),
 
+    #Search...
+    path('searchPageData/',views.search_data,name="search"),
+    path('searchPageData/<str:k>',views.searchPageData,name="searchPageData"),
+    path('searchPageData/searchGetData/<str:k>',views.searchGetData,name="searchGetData"),
+    path('college/<k>',views.homeSearch,name='college'),
+
 ]
 
