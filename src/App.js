@@ -1,27 +1,27 @@
 import React from "react";
 import './App.css';
 import Homepage from "./frontend/pages/Homepage";
-import ContactUs from "./frontend/pages/ContactUs";
-import AboutUs from "./frontend/pages/AboutUs";
-import Websitepage from "./frontend/pages/Websitepage";
-import Login from "./frontend/pages/Login";
-import CreateAccount from "./frontend/pages/CreateAccount";
-import Searchpage from "./frontend/pages/Searchpage";
-import AboutProf from "./frontend/pages/AboutProf";
-import UpdateProfile from "./frontend/pages/UpdateProfile";
+// import ContactUs from "./frontend/pages/ContactUs";
+// import AboutUs from "./frontend/pages/AboutUs";
+// import Websitepage from "./frontend/pages/Websitepage";
+// import Login from "./frontend/pages/Login";
+// import CreateAccount from "./frontend/pages/CreateAccount";
+// import Searchpage from "./frontend/pages/Searchpage";
+// import AboutProf from "./frontend/pages/AboutProf";
+// import UpdateProfile from "./frontend/pages/UpdateProfile";
 import { BrowserRouter, Route } from "react-router-dom";
-import { AuthProvider } from "./frontend/contexts/AuthContext"
-import ForgotPassword from "./frontend/pages/ForgotPassword.js";
-import PrivateRoute from "./frontend/components/PrivateRoute.js"
-import SearchpageSimple from "./frontend/pages/SearchpageSimple"
+// import { AuthProvider } from "./frontend/contexts/AuthContext"
+// import ForgotPassword from "./frontend/pages/ForgotPassword.js";
+// import PrivateRoute from "./frontend/components/PrivateRoute.js"
+// import SearchpageSimple from "./frontend/pages/SearchpageSimple"
 
 export default function App() {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <div className="App">
-          <Route path="/" exact component={Homepage} />
-          <Route path="/web" exact component={Websitepage} />
+      {/* <AuthProvider> */}
+      <div className="App">
+        <Route path="/" exact component={Homepage} />
+        {/* <Route path="/web" exact component={Websitepage} />
           <Route path="/ContactUs" exact component={ContactUs} />
           <Route path="/AboutUs" exact component={AboutUs} />
           <Route path="/Login" exact component={Login} />
@@ -30,9 +30,9 @@ export default function App() {
           <Route path="/Searchpage/:searchName" exact component={Searchpage} />
           <Route path="/AboutProf/:searchName" exact component={AboutProf} />
           <Route path="/forgot-password" exact component={ForgotPassword} />
-          <PrivateRoute path="/update-profile" exact component={UpdateProfile} />
-        </div>
-      </AuthProvider>
+          <PrivateRoute path="/update-profile" exact component={UpdateProfile} /> */}
+      </div>
+      {/* </AuthProvider> */}
     </BrowserRouter>
   );
 }
