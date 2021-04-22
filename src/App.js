@@ -3,7 +3,7 @@ import './App.css';
 import Homepage from "./frontend/pages/Homepage";
 // import ContactUs from "./frontend/pages/ContactUs";
 // import AboutUs from "./frontend/pages/AboutUs";
-// import Websitepage from "./frontend/pages/Websitepage";
+import Websitepage from "./frontend/pages/Websitepage";
 // import Login from "./frontend/pages/Login";
 // import CreateAccount from "./frontend/pages/CreateAccount";
 // import Searchpage from "./frontend/pages/Searchpage";
@@ -21,8 +21,8 @@ export default function App() {
       {/* <AuthProvider> */}
       <div className="App">
         <Route path="/" exact component={Homepage} />
-        {/* <Route path="/web" exact component={Websitepage} />
-          <Route path="/ContactUs" exact component={ContactUs} />
+        <Route path="/web" exact component={Websitepage} />
+        { /* <Route path="/ContactUs" exact component={ContactUs} />
           <Route path="/AboutUs" exact component={AboutUs} />
           <Route path="/Login" exact component={Login} />
           <Route path="/CreateAccount" exact component={CreateAccount} />
