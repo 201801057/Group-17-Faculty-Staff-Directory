@@ -1,0 +1,13 @@
+.search-page {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 800px) {
+  .search-page {
+    justify-content: center;
+  }
+}

@@ -24,3 +24,4 @@ yarn-error.log*
 
 # Ignore files related to API keys
 .env
+node_modules
