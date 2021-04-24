@@ -1,35 +1,35 @@
 import React, { useState } from "react";
 import "./styles.css";
-// import { useAuth } from '../../contexts/AuthContext'
-// import { useHistory } from "react-router-dom"
+import { useAuth } from '../../contexts/AuthContext'
+import { useHistory } from "react-router-dom"
 
 export default function Footer() {
 
-  // const [error, setError] = useState("")
-  // const { currentUser, logout } = useAuth()
-  // const history = useHistory()
+  const [error, setError] = useState("")
+  const { currentUser, logout } = useAuth()
+  const history = useHistory()
 
   async function handleLogOut() {
-    // setError("")
+    setError("")
 
-    // try {
-    //   await logout()
-    //   history.push("/")
-    // } catch {
-    //   setError("Failed to log out")
-    //   alert(error);
-    // }
+    try {
+      await logout()
+      history.push("/")
+    } catch {
+      setError("Failed to log out")
+      alert(error);
+    }
   }
 
   function loginUI() {
-    // if (currentUser)
-    //   return <a onClick={handleLogOut} href="/">
-    //     Logout
-    //         </a>
-    // else
-    //   return <a href="/Login">
-    //     Faculty-Login
-    //         </a>
+    if (currentUser)
+      return <a onClick={handleLogOut} href="/">
+        Logout
+            </a>
+    else
+      return <a href="/Login">
+        Faculty-Login
+            </a>
   }
 
 
