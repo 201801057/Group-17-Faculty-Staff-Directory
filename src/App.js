@@ -1,7 +1,7 @@
 import React from "react";
 import './App.css';
 import Homepage from "./frontend/pages/Homepage";
-// import ContactUs from "./frontend/pages/ContactUs";
+import ContactUs from "./frontend/pages/ContactUs";
 import AboutUs from "./frontend/pages/AboutUs";
 import Websitepage from "./frontend/pages/Websitepage";
 // import Login from "./frontend/pages/Login";
@@ -25,8 +25,8 @@ export default function App() {
         <Route path="/Searchpage/" exact component={SearchpageSimple} />
         <Route path="/Searchpage/:searchName" exact component={Searchpage} />
         <Route path="/AboutUs" exact component={AboutUs} />
-          
-        { /* <Route path="/ContactUs" exact component={ContactUs} />
+        <Route path="/ContactUs" exact component={ContactUs} />
+        { /* 
           <Route path="/Login" exact component={Login} />
           <Route path="/CreateAccount" exact component={CreateAccount} />
           <Route path="/AboutProf/:searchName" exact component={AboutProf} />
