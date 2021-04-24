@@ -1,35 +1,35 @@
 import React, { useState } from "react";
 import "./styles.css";
 import { Navbar, Nav } from "react-bootstrap";
-// import { useAuth } from '../../contexts/AuthContext'
-// import { useHistory } from "react-router-dom"
+import { useAuth } from '../../contexts/AuthContext'
+import { useHistory } from "react-router-dom"
 
 export default function Header() {
 
-  // const [error, setError] = useState("")
-  // const { currentUser, logout } = useAuth()
-  // const history = useHistory()
+  const [error, setError] = useState("")
+  const { currentUser, logout } = useAuth()
+  const history = useHistory()
 
   async function handleLogOut() {
-    // setError("")
+    setError("")
 
-    // try {
-    //   await logout()
-    //   history.push("/")
-    // } catch {
-    //   setError("Failed to log out")
-    //   alert(error);
-    // }
+    try {
+      await logout()
+      history.push("/")
+    } catch {
+      setError("Failed to log out")
+      alert(error);
+    }
   }
 
   function loginUI() {
-    // if (currentUser)
-    //   return <Nav.Link className="login-button" onClick={handleLogOut} href="/">
-    //     Logout
-    //         </Nav.Link>
-    // else
-    return <Nav.Link className="login-button" href="/Login">
-      Faculty-Login
+    if (currentUser)
+      return <Nav.Link className="login-button" onClick={handleLogOut} href="/">
+        Logout
+            </Nav.Link>
+    else
+      return <Nav.Link className="login-button" href="/Login">
+        Faculty-Login
             </Nav.Link>
   }
 
