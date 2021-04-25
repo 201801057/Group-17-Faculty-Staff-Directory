@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./styles.css";
 import { db } from "../../../firebase.js";
 
+
 export default function ProfileCard(props) {
   const [a, setA] = useState(true);
   const [e, setE] = useState(false);
