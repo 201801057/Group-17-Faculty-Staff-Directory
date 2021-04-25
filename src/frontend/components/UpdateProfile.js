@@ -520,7 +520,7 @@ export default function UpdateProfile() {
                 setImgUrl(URL.createObjectURL(e.target.files[0]))
               }}
             />
-            <img style={{ width: "80%" }} src={imgURL} alt="No-pic" />
+            <img style={{ width: "300px" }} src={imgURL} alt="No-pic" />
           </Form.Group>
 
           <Button disabled={loading} type="submit">
