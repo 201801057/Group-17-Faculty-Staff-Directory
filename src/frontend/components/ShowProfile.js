@@ -4,6 +4,7 @@ import { useAuth } from "../contexts/AuthContext"
 import { useHistory } from "react-router-dom"
 import { db } from '../../firebase.js';
 import firebase from 'firebase/app'
+import 'firebase/storage';
 
 export default function UpdateProfile() {
 
@@ -220,7 +221,7 @@ export default function UpdateProfile() {
                         />
                     </Form.Group>
 
-                    {img && <img style={{ width: "80%" }} src={img} alt="No-pic"></img>}
+                    {img && <img style={{ width: "300px" }} src={img} alt="No-pic"></img>}
 
                     <Button type="submit">
                         Update
