@@ -3,6 +3,8 @@ import "firebase/auth"
 import 'firebase/firestore';
 <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
 
+//cloud storage activated
+
 const app = firebase.initializeApp({
     apiKey: "AIzaSyCCXrtdSIvw0ydrsnofBGJGRbXdkpzoog0",
     authDomain: "maven-57cb2.firebaseapp.com",
