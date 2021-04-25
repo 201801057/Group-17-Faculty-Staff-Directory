@@ -14,6 +14,7 @@ import { AuthProvider } from "./frontend/contexts/AuthContext"
 import ForgotPassword from "./frontend/pages/ForgotPassword.js";
 import PrivateRoute from "./frontend/components/PrivateRoute.js"
 import SearchpageSimple from "./frontend/pages/SearchpageSimple"
+import ShowProfile from "./frontend/pages/ShowProfile"
 
 export default function App() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="/forgot-password" exact component={ForgotPassword} />
           <Route path="/AboutProf/:searchName" exact component={AboutProf} />
           <PrivateRoute path="/update-profile" exact component={UpdateProfile} />
+          <PrivateRoute path="/show-profile" exact component={ShowProfile} />
         </div>
       </AuthProvider>
     </BrowserRouter>

@@ -1,14 +1,15 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import UpdateProfile from "../components/UpdateProfile";
+import ShowProfile from "../components/ShowProfile";
 import "./styles.css"
 
-export default function Homepage() {
+
+export default function f() {
     return (
         <div className="Searchpage">
             <Header></Header>
-            <UpdateProfile></UpdateProfile>
+            <ShowProfile></ShowProfile>
             <Footer></Footer>
         </div>
     );
