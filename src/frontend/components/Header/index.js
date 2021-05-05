@@ -61,7 +61,9 @@ export default function Header() {
           <Nav.Link eventKey={2} href="/ContactUs" className="feature-list">
             Contact Us
           </Nav.Link>
-
+          {currentUser && <Nav.Link eventKey={2} href="/show-profile" className="feature-list">
+            Profile
+          </Nav.Link>}
           {loginUI()}
         </Nav>
       </Navbar.Collapse>

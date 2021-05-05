@@ -4,11 +4,25 @@
   background-color: transparent;
 }
 
-.form-control {
+/* .form-control {
   height: 40px;
   border-radius: 20px;
   width: 70vw;
   margin: 20px;
+} */
+
+.searchpage-searchbar{
+  height: 40px;
+  border:  2px solid #ccc;
+  border-radius: 20px;
+  width: 70vw;
+  margin: 30px 2px;
+}
+
+.search button{
+  background-color: transparent;
+  border: 1px solid #ccc;
+  padding: 10px;
 }
 
 .box{

@@ -1,8 +1,10 @@
 import React, { useRef, useState } from "react"
-import { Form, Button, Alert } from "react-bootstrap"
+import { Form, Button, Alert, InputGroup, FormControl } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import { db } from '../../firebase.js';
+import EmailIcon from '@material-ui/icons/Email';
+import LockIcon from '@material-ui/icons/Lock';
 
 export default function Signup() {
   const emailRef = useRef()
@@ -26,6 +28,15 @@ export default function Signup() {
       experience: [],
       publication: [],
       courses: [],
+      about: "",
+      address: "",
+      facebook: "",
+      instagram: "",
+      linkedin: "",
+      twitter: "",
+      researchwork: "",
+      year: "",
+      img: ""
     })
       .then(() => {
         console.log("Document successfully written!");
@@ -59,12 +70,54 @@ export default function Signup() {
   }
 
   return (
-    <div className="w-100 d-flex justify-content-center" >
+    <div className="w-90 d-flex justify-content-center" style={{
+      margin: "30px"
+    }}>
       <div className="border">
-        <h2 className="mb-4 mt-4">Sign Up</h2>
+        <h2 className="bg-secondary text-center mb-3 text-light pb-2">Sign Up</h2>
         {error && <Alert variant="danger">{error}</Alert>}
-        <Form onSubmit={handleSubmit}>
-          <Form.Group id="email">
+        <Form style={{ padding: "30px" }} onSubmit={handleSubmit}>
+
+          <InputGroup className="mb-5">
+            <InputGroup.Prepend>
+              <InputGroup.Text id="basic-addon1"><EmailIcon /></InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              type="email"
+              placeholder="Email"
+              aria-label="Email"
+              aria-describedby="basic-addon1"
+              ref={emailRef}
+            />
+          </InputGroup>
+
+          <InputGroup className="mb-5">
+            <InputGroup.Prepend>
+              <InputGroup.Text id="basic-addon2"><LockIcon /></InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              type="password"
+              placeholder="Password"
+              aria-label="Password"
+              aria-describedby="basic-addon2"
+              ref={passwordRef}
+            />
+          </InputGroup>
+
+          <InputGroup className="mb-5">
+            <InputGroup.Prepend>
+              <InputGroup.Text id="basic-addon3"><LockIcon /></InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              type="password"
+              placeholder="Re-enter Password"
+              aria-label="Password"
+              aria-describedby="basic-addon3"
+              ref={passwordConfirmRef}
+            />
+          </InputGroup>
+
+          {/* <Form.Group id="email">
             <Form.Label>Email</Form.Label>
             <Form.Control className="w-90" type="email" ref={emailRef} required />
           </Form.Group>
@@ -75,12 +128,13 @@ export default function Signup() {
           <Form.Group id="password-confirm">
             <Form.Label>Password Confirmation</Form.Label>
             <Form.Control className="w-90" type="password" ref={passwordConfirmRef} required />
-          </Form.Group>
-          <Button disabled={loading} className="mb-4" type="submit">
+          </Form.Group> */}
+          <Button disabled={loading} className="mb-2" type="submit">
             Sign Up
             </Button>
         </Form>
 
+        <hr />
         <div className="w-100 mt-2">
           Already have an account? <Link to="/login">Log In</Link>
         </div>
