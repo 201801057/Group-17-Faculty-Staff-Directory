@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 import ShowProfile from "../components/ShowProfile";
 import "./styles.css"
 
-
 export default function f() {
     return (
         <div className="Searchpage">
