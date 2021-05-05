@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Poppins:wght@300&display=swap");
+
+.discription-top {
+  margin: 50px;
+  padding: 20px;
+}
+.top-desc {
+  margin: 20px;
+  padding: 10px;
+}
+
+.goto-web {
+  background-image: url("https://i.ibb.co/stH4qdQ/Confetti-Shapes.png");
+  height: 300px;
+  width: 100%;
+}
+
+.goto-button {
+  background-color: #00b6f0;
+  border-width: 0px;
+  color: white;
+  border-radius: 30px;
+  padding: 10px 60px;
+}
+
+.goto-button:hover {
+  /* color: #000; */
+  box-shadow: 2px 0px 5px 1px #aaa;
+}
+
+.Body img {
+  width: 100%;
+  overflow: auto;
+  height: auto;
+  max-width: 640px;
+  max-width: 640px;
+}
+
+.discription-bottom {
+  margin: 50px;
+}
