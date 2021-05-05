@@ -14,3 +14,16 @@ export default function PrivateRoute({ component: Component, ...rest }) {
     ></Route>
   )
 }
+
+
+export function AdminRoute({ component: Component, ...rest }) {
+  const { currentUser } = useAuth()
+  return (
+    <Route
+      {...rest}
+      render={props => {
+        return currentUser.email === "201801440@daiict.ac.in" ? <Component {...props} /> : <Redirect to="/login" />
+      }}
+    ></Route>
+  )
+}

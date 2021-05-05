@@ -63,7 +63,7 @@ function Searchpage(props) {
     if (lowercasedValue === "university") setData(dataList);
     else {
       const filteredData = dataList.filter(item => {
-        return item.name === value;
+        return item.university === value;
       });
       setData(filteredData);
     }
@@ -95,7 +95,7 @@ function Searchpage(props) {
   return (
     <div className="search">
       <input
-        className="form-control"
+        className="searchpage-searchbar"
         type="search"
         placeholder={" Type to search..."}
         value={searchText}
@@ -128,7 +128,7 @@ function Searchpage(props) {
           );
         })}
         <div className="clearboth" />
-        {data.length === 0 && <span>No records found to display!</span>}
+        {data.length === 0 && <img src="https://i.ibb.co/fp04h1b/no-record-found.jpg" alt="no-record-found" border="0"></img>}
       </div>
     </div>
   );

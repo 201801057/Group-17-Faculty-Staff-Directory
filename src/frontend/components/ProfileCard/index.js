@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.css";
+import firebase from 'firebase/app'
+
+
 export default function ProfileCard(props) {
   const [a, setA] = useState(true);
   const [e, setE] = useState(false);
   const [c, setC] = useState(false);
+  const [img, setImg] = useState("https://2.bp.blogspot.com/-b_lqelKRB4k/Xj-rBvoSxUI/AAAAAAAACHg/G19lzRiO6qYQmquCqut44r1cMdF53HQ0QCLcBGAsYHQ/s1600/anime3.png")
 
+  useEffect(() => {
+    firebase.storage().ref('Prof/' + props.id + "/Profile.jpg").getDownloadURL().then(x => {
+      setImg(x)
+    })
+  }, [props.id])
 
   return (
     <div
@@ -16,7 +25,7 @@ export default function ProfileCard(props) {
 
         <img
           className="card-avatar"
-          src="https://2.bp.blogspot.com/-b_lqelKRB4k/Xj-rBvoSxUI/AAAAAAAACHg/G19lzRiO6qYQmquCqut44r1cMdF53HQ0QCLcBGAsYHQ/s1600/anime3.png"
+          src={img}
           alt="avatar"
         />
 
@@ -70,6 +79,7 @@ export default function ProfileCard(props) {
             </a>
 
             <a href={'/AboutProf/' + props.id} className="btn-full">
+              {console.log(props.id)}
               Full Profile
             </a>
           </div>

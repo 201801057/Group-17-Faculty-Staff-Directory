@@ -1,5 +1,7 @@
-*{
-    box-sizing: content-box;
+#root > div > div > div > div > form > div.react-tel-input > input{
+    width: 80%;
+    min-width: 100px;
+    max-width: 300px;
 }
 
 

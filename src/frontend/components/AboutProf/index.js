@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
 import { db } from "../../../firebase.js";
+import firebase from 'firebase/app'
 
 
 export default function ProfileCard(props) {
@@ -11,13 +12,20 @@ export default function ProfileCard(props) {
   const [p, setP] = useState(false);
   const [cr, setCr] = useState(false);
   const [ac, setAc] = useState(false);
+  const [img, setImg] = useState();
 
   const [userDetails, setUserDetails] = useState('')
 
   useEffect(() => {
     db.collection('Prof').doc(props.searchName).get()
       .then(snapshot => setUserDetails(snapshot.data()))
-  }, [props.searchName]);
+
+    firebase.storage().ref('Prof/' + userDetails.id + "/Profile.jpg").getDownloadURL().then(x => {
+      setImg(x)
+      console.log(x)
+    })
+
+  }, [props.searchName, userDetails.id]);
 
   return (
     <div className="proff-card">
@@ -30,7 +38,7 @@ export default function ProfileCard(props) {
 
           <img
             className="card-avatar"
-            src="https://2.bp.blogspot.com/-b_lqelKRB4k/Xj-rBvoSxUI/AAAAAAAACHg/G19lzRiO6qYQmquCqut44r1cMdF53HQ0QCLcBGAsYHQ/s1600/anime3.png"
+            src={img || "https://2.bp.blogspot.com/-b_lqelKRB4k/Xj-rBvoSxUI/AAAAAAAACHg/G19lzRiO6qYQmquCqut44r1cMdF53HQ0QCLcBGAsYHQ/s1600/anime3.png"}
             alt="avatar"
           />
 
@@ -97,7 +105,7 @@ export default function ProfileCard(props) {
               <div className="card-timeline">
                 {userDetails.experience && userDetails.experience.map((d, i) => {
                   return (
-                    <div key={i} className="card-item" data-year={userDetails.year[i]}>
+                    <div key={i} className="card-item" data-year={userDetails.year && userDetails.year[i]}>
                       <div className="card-item-title">
                         {d}
                       </div>
