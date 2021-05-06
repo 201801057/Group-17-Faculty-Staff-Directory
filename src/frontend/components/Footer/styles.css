@@ -61,6 +61,11 @@
   margin: 0;
 }
 
+.footer-links a:hover {
+  -webkit-text-fill-color: #333;
+  text-shadow: #333;
+}
+
 /* Footer Center */
 
 .footer-distributed .footer-center {
@@ -78,6 +83,11 @@
   line-height: 42px;
   margin: 10px 15px;
   vertical-align: middle;
+}
+
+.footer-center a:hover {
+  -webkit-text-fill-color: #333;
+  text-shadow: #333;
 }
 
 .footer-distributed .footer-center i.fa-envelope {
