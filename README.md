@@ -19,5 +19,18 @@ Online faculty staff directory empowers user to easily view college faculty deta
 - [Web Application Demo](#demo)
 - [Contributors](#contributors)
 
+## What is this?
 
+Online Faculty Staff directory for multi university is a fully responsive React, Firebase Application. 
+
+
+## Features
+
+- Fully Responsive Web-Design
+- Firebase/React implementation
+- Authentication & authorization
+- Pick between Realtime Database and Firestore
+- Create/modify/delete users
+- Change/Reset Password built into the dashboard.
+- User filtering and search
 
