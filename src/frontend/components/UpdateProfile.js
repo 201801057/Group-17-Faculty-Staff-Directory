@@ -493,7 +493,7 @@ export default function UpdateProfile() {
               as="textarea"
               raw={5}
               onChange={(e) => { setAddress(e.target.value) }}
-              value={user.address || "Address"}
+              value={address || "Address"}
             />
           </Form.Group>
 
@@ -517,7 +517,7 @@ export default function UpdateProfile() {
             id="tags"
             options={allCourses}
             getOptionLabel={(option) => option}
-            value={user.courses}
+            value={courses}
             renderInput={(params) => (
               <TextField
                 {...params}
