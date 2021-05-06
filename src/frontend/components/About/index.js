@@ -6,56 +6,53 @@ export default function About() {
     <div className="about">
       <div className="jumbotron jumbotron-fluid text-white">
         <div className="" align="center">
-          <h1 className="display-4">Our Mission</h1>
+          <h1 className="display-4">We're the MAVEN</h1>
           <p className="lead">
-            Reinventing online shopping by enabling collaboration and empowering
-            buyers.
+          To provide details of faculties & staffs of different universities 
           </p>
         </div>
       </div>
 
       <div className="">
         <div className="mb-4 d-flex justify-content-center mt-2 mx-auto" align="center">
-          <h2 className="text-primary">Our Beliefs</h2>
+          <h2 className="text-primary">Why MAVEN?</h2>
         </div>
         <div className="m-5" align="center">
           <div className="">
-            <h5>Collaboration is power</h5>
+            <h5>Verified profiles</h5>
+            <img
+              src="https://img.icons8.com/ios/100/000000/verified-account.png"
+              width="20%"
+              alt="img"
+            ></img>
+            <p>
+            Our aim is to provide 100% Verified profiles, so that users can get verified and reliable informations.{" "}
+            </p>
+          </div>
+          <div className="">
+            <h5>Collabration is power</h5>
             <img
               src="https://image.flaticon.com/icons/svg/265/265663.svg"
               width="20%"
               alt="img"
             ></img>
             <p>
-              We believe that sum of all the parts is different from the
-              individual pieces. This means that as we work together, we are on
-              our way to building a happier and healthier society.{" "}
+            We believe in the power of individuals coming together.Our mission is to expand our directory as much as possible. After becoming part of our family
+             you can get more opportunities acording to your profession from different organisations. It also helps
+             all the bright students to get access to your profile and to collaborate with you.{" "}
             </p>
           </div>
           <div className="">
-            <h5>Planning ahead</h5>
-            <img
-              src="https://image.flaticon.com/icons/svg/1006/1006534.svg"
-              width="20%"
-              alt="img"
-            ></img>
-            <p>
-              We want to change the way people think about shopping. Planning is
-              a fundamental way to be prepared for whatever life throws at you.
-              If you plan ahead, you can find a lot more options and deals.{" "}
-            </p>
-          </div>
-          <div className="">
-            <h5>Customer is king</h5>
+            <h5>Our Members are our family</h5>
             <img
               src="https://image.flaticon.com/icons/svg/265/265668.svg"
               width="20%"
               alt="img"
             ></img>
             <p>
-              We strive to maintain top of the line customer service because we
-              believe in the power of individuals coming together. We don’t just
-              aim to serve, but to partner with our customers.{" "}
+            We strive to maintain top of the line customer service because our  members are our first priority. We care about members so much and 
+            we ensure them their data is encrypted and no one can change thier data. We encourage you to become part 
+            of our family.{" "}
             </p>
           </div>
         </div>
@@ -67,24 +64,21 @@ export default function About() {
 
           <div className="px-5">
             <p>
-              We believe individuals and small businesses are strengthened by
-              coordinating with others. We value small business and the family
-              unit as the foundation of society, and believe that joining with
-              others helps preserve those values.
+              Our main motto is to provide directory of faculties & staffs of 
+              multiple universities at one website to our customers.So that
+              our custmores can easily get data about any faculty at one website instead of visiting 
+              many universities' website.
             </p>
 
             <p>
               {" "}
-              The power of volume purchasing has generally gone to large
-              companies or individuals with significant resources. We can get
-              more buying power to individuals by creating groups of people and
-              pooling our resources together.
+              We believe that valid and 100% correct details about professors is very important
+              and essential for students.So that students can get correct details about professors and student doesn't get trap in any scam and able to contact them directly. 
+              Our website also helps parents or guardians to choose best faculties for their children.
             </p>
             <p>
-              We also hope to join with you in having a lot of fun along the
-              way. Yepple group orders can help with taking care of daily needs,
-              finishing do-it-yourself projects, gathering with friends who
-              share hobbies, or preparing for emergencies.
+            Our management team welcome any questions or any suggestions from you. So that we can improve performance of our website.You can drop your questions and suggestions by clicking below 
+              button.Your small suggestions  will help us a lot. 
             </p>
           </div>
           <div className="" align="center">
@@ -99,7 +93,7 @@ export default function About() {
 
       <div className="jumbotron jumbotron-fluid bg-light text-black">
         <div className="" align="center">
-          <h3>Have More Questions?</h3>
+          <h3>Have More Questions/Suggestions?</h3>
           <a
             className="btn btn-outline-primary"
             href="/ContactUs"
