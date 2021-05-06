@@ -15,7 +15,7 @@ Online faculty staff directory empowers user to easily view college faculty deta
   - [Core](#core)
   - [Unit Testing](#unit-testing)
 - [Prerequisites](#prerequisites)
-- [Documentation](#documentation)
+- [User Guide](#user-guide)
 - [Web Application Demo](#demo)
 - [Contributors](#contributors)
 
@@ -43,6 +43,7 @@ Online Faculty Staff directory for multi university is a fully responsive React,
 - [Firebase](https://firebase.google.com/) for serverless architecture - CDN Hosting, Realtime Database, Authentication, Storage and Cloud Functions (see [docs](https://firebase.google.com/docs/web)).
 - [FirebaseUI-web-react](https://github.com/firebase/firebaseui-web-react) (★ 732) social media authentication library.
 - [Material UI](https://github.com/mui-org/material-ui) Material-UI is a simple and customizable component library to build faster, beautiful, and more accessible React applications. Follow your own design system, or start with Material Design.
+- [React Admin](https://github.com/marmelab/react-admin) A frontend Framework for building B2B applications running in the browser on top of REST/GraphQL APIs, using ES6, React and Material Design.
 
 
 
@@ -60,6 +61,30 @@ Online Faculty Staff directory for multi university is a fully responsive React,
 
 You also need to be familiar with [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [SASS](https://sass-lang.com/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) ([ES2015](http://babeljs.io/learn-es2015/)) and [React](https://reactjs.org/) with [React Hooks](https://reactjs.org/docs/hooks-intro.html).
 
+## User-Guide
+Clone this repository:
+
+```
+git clone https://github.com/201801057/Group-17-Faculty-Staff-Directory.git
+```
+
+Install npm packages:
+
+```
+npm install react-scripts
+```
+
+Start working:
+
+```
+npm start
+```
+
+Build Commands:
+```
+npm run build
+```
+
 ## Demo
 
 <a href="https://maven-se17.netlify.app/">Web Application Link </a>
@@ -72,11 +97,11 @@ We'd like to thank these awesome people who made this whole thing happen:
 <ul>
   <li><a href="https://github.com/201801057">Ayan Khokhar</a></li>
   <li><a href="https://github.com/patiltushar2101">Tushar Patil</a></li>
-    <li><a href="https://github.com/201801192">Anand Nadapara</a></li>
+    <li><a href="https://github.com/201801192">Anand Nadpara</a></li>
     <li><a href="https://github.com/Shyam101">Shyam Vaghela</a></li>
     <li><a href="https://github.com/Nishtha2000">Nishtha Chaudhary</a></li>
       <li><a href="https://github.com/tulsishah309">Tulsi Shah</a></li>
-    <li><a href="https://github.com/jhanvishroff0411">Janvi Shroff</a></li>
+    <li><a href="https://github.com/jhanvishroff0411">Jhanvi Shroff</a></li>
     <li><a href="https://github.com/AkashParmar91">Akash Parmar</a></li>
       <li><a href="https://github.com/Rutvik412">Rutvik Shah</a></li>
       <li><a href="https://github.com/Urmik350">Urmik Makani </a></li>
