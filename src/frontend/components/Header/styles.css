@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Poppins:wght@300&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.header-logo img {
+  height: 45px;
+  width: 70px;
+  margin: 15px 0px 15px 25px;
+}
+
+#back {
+  background-color: #00b6f0;
+}
+
+#home {
+  font-size: 30px;
+  font-weight: bold;
+  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+}
+
+.login-button {
+  font-weight: 900;
+  background: white;
+  -webkit-text-fill-color: #00b6f0;
+  border-radius: 30px;
+  padding: 5px 0;
+  margin: 10px;
+  height: 40px;
+}
+
+.login-button:hover {
+  -webkit-text-fill-color: #333;
+  box-shadow: 2px 2px 2px #333;
+}
+
+a.feature-list.nav-link {
+  margin: 10px;
+}
+
+a.feature-list.nav-link:hover {
+  -webkit-text-fill-color: #333;
+  text-shadow: #333;
+}
+.nav-link {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+@media (max-width: 300px) {
+  #home {
+    font-size: 25px;
+    font-weight: bold;
+    /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+  }
+
+  .header-logo img {
+    height: 45px;
+    width: 70px;
+    margin: 0;
+    padding: 0;
+  }
+}
