@@ -43,3 +43,43 @@ Online Faculty Staff directory for multi university is a fully responsive React,
 - [Firebase](https://firebase.google.com/) for serverless architecture - CDN Hosting, Realtime Database, Authentication, Storage and Cloud Functions (see [docs](https://firebase.google.com/docs/web)).
 - [FirebaseUI-web-react](https://github.com/firebase/firebaseui-web-react) (★ 732) social media authentication library.
 - [Material UI](https://github.com/mui-org/material-ui) Material-UI is a simple and customizable component library to build faster, beautiful, and more accessible React applications. Follow your own design system, or start with Material Design.
+
+
+
+### Unit Testing
+
+- [Jest](https://jestjs.io/) (★ 29.9k) as testing framework (see [docs](https://jestjs.io/docs/en/getting-started)).
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) (★ 12.7k) to test react components in Jest.
+
+
+## Prerequisites
+
+- [Firebase](https://firebase.google.com/) account in order to set up the serverless BaaS for the project.
+- [Node.js](https://nodejs.org/) v12.15.0 or higher (React frontend) and v10.0.0 (Cloud Functions) (You can install them using [NVM](https://github.com/nvm-sh/nvm)).
+- [VSCode](https://code.visualstudio.com/) editor (preferred) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and [Babel JavaScript ](https://marketplace.visualstudio.com/items?itemName=mgmcdermott.vscode-language-babel) plug-ins.
+
+You also need to be familiar with [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [SASS](https://sass-lang.com/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) ([ES2015](http://babeljs.io/learn-es2015/)) and [React](https://reactjs.org/) with [React Hooks](https://reactjs.org/docs/hooks-intro.html).
+
+## Demo
+
+<a href="https://maven-se17.netlify.app/">Web Application Link </a>
+
+
+## Contributors
+
+We'd like to thank these awesome people who made this whole thing happen:
+
+<ul>
+  <li><a href="https://github.com/201801057">Ayan Khokhar</a></li>
+  <li><a href="https://github.com/patiltushar2101">Tushar Patil</a></li>
+    <li><a href="https://github.com/201801192">Anand Nadapara</a></li>
+    <li><a href="https://github.com/Shyam101">Shyam Vaghela</a></li>
+    <li><a href="https://github.com/Nishtha2000">Nishtha Chaudhary</a></li>
+      <li><a href="https://github.com/tulsishah309">Tulsi Shah</a></li>
+    <li><a href="https://github.com/jhanvishroff0411">Janvi Shroff</a></li>
+    <li><a href="https://github.com/AkashParmar91">Akash Parmar</a></li>
+      <li><a href="https://github.com/Rutvik412">Rutvik Shah</a></li>
+      <li><a href="https://github.com/Urmik350">Urmik Makani </a></li>
+    
+    
+</ul>
