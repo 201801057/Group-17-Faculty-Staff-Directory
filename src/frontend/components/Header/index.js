@@ -1,38 +1,9 @@
-import React, { useState } from "react";
+import {} from "module";
+import React from "react";
 import "./styles.css";
 import { Navbar, Nav } from "react-bootstrap";
-import { useAuth } from '../../contexts/AuthContext'
-import { useHistory } from "react-router-dom"
 
 export default function Header() {
-
-  const [error, setError] = useState("")
-  const { currentUser, logout } = useAuth()
-  const history = useHistory()
-
-  async function handleLogOut() {
-    setError("")
-
-    try {
-      await logout()
-      history.push("/")
-    } catch {
-      setError("Failed to log out")
-      alert(error);
-    }
-  }
-
-  function loginUI() {
-    if (currentUser)
-      return <Nav.Link className="login-button" onClick={handleLogOut} href="/">
-        Logout
-            </Nav.Link>
-    else
-      return <Nav.Link className="login-button" href="/Login">
-        Faculty-Login
-            </Nav.Link>
-  }
-
   return (
     <Navbar id="back" collapseOnSelect expand="lg" variant="dark">
       <Navbar.Brand href="/" className="header-logo">
@@ -61,10 +32,10 @@ export default function Header() {
           <Nav.Link eventKey={2} href="/ContactUs" className="feature-list">
             Contact Us
           </Nav.Link>
-          {currentUser && <Nav.Link eventKey={2} href="/show-profile" className="feature-list">
-            Profile
-          </Nav.Link>}
-          {loginUI()}
+
+          <Nav.Link className="login-button" href="/Login">
+            Faculty-Login
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
