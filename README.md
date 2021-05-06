@@ -34,3 +34,12 @@ Online Faculty Staff directory for multi university is a fully responsive React,
 - Change/Reset Password built into the dashboard.
 - User filtering and search
 
+## Tech Stack
+
+### Core
+- [NPM](https://www.npmjs.com/) this project is powered with npm node package manager which provides it with functionality of tonnes of awesome javascript libraries.
+- [Create React App](https://github.com/facebook/create-react-app) (★ 76.5k) this project was bootstrapped with create react app (see [user guide](https://create-react-app.dev/docs/getting-started)).
+- [React-router](https://github.com/ReactTraining/react-router) (★ 39.6k) declarative routing for React.
+- [Firebase](https://firebase.google.com/) for serverless architecture - CDN Hosting, Realtime Database, Authentication, Storage and Cloud Functions (see [docs](https://firebase.google.com/docs/web)).
+- [FirebaseUI-web-react](https://github.com/firebase/firebaseui-web-react) (★ 732) social media authentication library.
+- [Material UI](https://github.com/mui-org/material-ui) Material-UI is a simple and customizable component library to build faster, beautiful, and more accessible React applications. Follow your own design system, or start with Material Design.
