@@ -1,0 +1,44 @@
+{% extends 'faculty/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<form action="{% url 'adduser' %}" method="post" class="d-inline">
+    {% csrf_token %}
+    <input type="submit" value="adduser" class="btn btn-outline-info btn-sm">
+</form>
+{% if users %}
+<table class="table table-hover bg-dark">
+<thead>
+    <tr class="text-center">
+        
+        <th scope="col" style="width:20% ; color: aliceblue;"> Name</th>
+        <th scope="col" style="width:20% ; color: aliceblue;"> Action</th>
+        
+    </tr>
+</thead>
+<tbody>
+    {% for u in users %}
+    
+   
+     <tr class="text-center text-white">
+        
+        <td>{{u.username}}</td>
+        
+        <td class="text-lg-center">
+        </td>    
+        <td class="text-lg-center">
+          
+           <a href="{% url 'confirmDelete' u.id %}">Delete</a>
+        
+         
+           
+        </td>
+    </tr>
+   
+    {% endfor %}
+   
+</tbody>
+</table>
+{% endif %}
+{% endblock content %}

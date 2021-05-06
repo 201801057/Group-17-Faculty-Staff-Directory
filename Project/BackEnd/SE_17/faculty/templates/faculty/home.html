@@ -1,0 +1,28 @@
+{% extends 'faculty/base.html' %}
+{% load static %}
+{% block content %}
+<a href="{% url 'college' k="DAIICT" %}">
+<img src="{% static 'faculty/images/DA_Symbol.png'  %}" style="height:200px; width:25   0px;float:left;" alt="" >
+</a>
+<a href="{% url 'college' k="AUE" %}">
+<img src="{% static 'faculty/images/American-University-Education-Logo-Design.jpg'  %}" style="height:200px; width:25   0px;float:left;" alt="" >
+</a>
+<a href="{% url 'college' k="HARVRD" %}">
+<img src="{% static 'faculty/images/Harvard-University-Education.jpg'  %}" style="height:200px; width:25   0px;float:left;" alt="" >
+</a>
+<a href="{% url 'college' k="IIT-Gandhinagar" %}">
+<img src="{% static 'faculty/images/59093509.jpg'  %}" style="height:200px; width:25   0px;float:left;" alt="" >
+</a>
+<a href="{% url 'college' k="MSUE" %}">
+<img src="{% static 'faculty/images/Michigan-State-University-Education-Logo-Design.jpg'  %}" style="height:200px; width:25   0px;float:left;" alt="" >
+</a>
+<a href="{% url 'college' k="PDPU" %}">
+<img src="{% static 'faculty/images/Pandit_Deendayal_Petroleum_University_logo.jpg'  %}" style="height:200px; width:25   0px;float:left;" alt="" >
+</a>
+<a href="{% url 'college' k="SE" %}">
+<img src="{% static 'faculty/images/SUNY-Education-Logo-Design.jpg'  %}" style="height:200px; width:25   0px;float:left;" alt="" >
+</a>
+<a href="{% url 'college' k="UONDE" %}">
+<img src="{% static 'faculty/images/University-of-Notre-Dame-Education-Logo-Design.jpg'  %}" style="height:200px; width:25   0px;float:left;" alt="" >
+</a>
+{% endblock content %}
