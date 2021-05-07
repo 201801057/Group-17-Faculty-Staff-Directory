@@ -176,6 +176,7 @@ export default function ProfileCard(props) {
         <div className="card-buttons">
           <button
             data-section="#about"
+            data-testid="about_btn" 
             onClick={() => {
               setA(true);
               setE(false);
@@ -188,6 +189,7 @@ export default function ProfileCard(props) {
 
           <button
             data-section="#experience"
+            data-testid = "experience_btn"
             onClick={() => {
               setA(false);
               setE(true);

@@ -14,7 +14,7 @@ export default function Body() {
       </div>
       <div className="goto-web">
         <a href="/web">
-          <button className="goto-button">Go to the Website</button>
+          <button className="goto-button" data-testid = 'go_to_btn'>Go to the Website</button>
         </a>
       </div>
       <div className="body-photo">
