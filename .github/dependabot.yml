@@ -6,6 +6,6 @@
 version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+    directory: "/Project Work/" # Location of package manifests
     schedule: # Updates set to daily
       interval: "daily"
